@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import List from "../Pages/List/List";
 import Register from "../Pages/Register/Register";
 
 const Router = () => {
@@ -6,7 +7,7 @@ const Router = () => {
     <BrowserRouter>
       <Routes>
         <Route index element={<Register />} />
-        {/* <Route path="/list" element={<List />}/> */}
+        <Route path="/list" element={<List />}/>
         {/* <Route path="*" element={<Error />}/> */}
       </Routes>
     </BrowserRouter>

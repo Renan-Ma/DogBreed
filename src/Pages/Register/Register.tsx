@@ -1,7 +1,31 @@
+import React from "react";
 import { Box, TextField } from "@mui/material";
 import { MainContainer, Button } from "./styled";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { BASE_URL } from "../../Constants/Url";
 
 const Register = () => {
+  const navigate = useNavigate();
+
+  const [email, setEmail] = React.useState("");
+
+  const onChangeEmail = (event: any) => {
+    setEmail(event.target.value);
+  };
+
+  const onSubmitLogin = async () => {
+    const body = {email: email}
+     await axios
+      .post(`${BASE_URL}/register`, body)
+      .then((res) => {
+        localStorage.setItem("token", res.data.user.token);
+        navigate("/list");
+      })
+      .catch((err) => {
+        alert(err.response.data.error.message);
+      });
+  };
   return (
     <MainContainer>
       <h1>Dog Breed</h1>
@@ -18,10 +42,14 @@ const Register = () => {
             label="E-mail"
             variant="outlined"
             color="success"
+            type="email"
+            value={email}
+            onChange={onChangeEmail}
+            required
           />
         </Box>
       </div>
-      <Button>Registrar</Button>
+      <Button onClick={onSubmitLogin}>Registrar</Button>
     </MainContainer>
   );
 };
