@@ -1,14 +1,17 @@
-// import React from 'react'
-// import { Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import List from "../Pages/List/List";
+import Register from "../Pages/Register/Register";
 
-// const Router = () => {
-//   return (
-//     <Routes>
-//       <Route index element={<Register />}/>
-//       <Route path="/list" element={<List />}/>
-//       <Route path="*" element={<Error />}/>
-//     </Routes>
-//   )
-// }
+const Router = () => {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route index element={<Register />} />
+        <Route path="/list" element={<List />}/>
+        {/* <Route path="*" element={<Error />}/> */}
+      </Routes>
+    </BrowserRouter>
+  );
+};
 
-// export default Router
+export default Router;
