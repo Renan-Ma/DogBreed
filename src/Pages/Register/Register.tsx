@@ -4,6 +4,7 @@ import { MainContainer, Button } from "./styled";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { BASE_URL } from "../../Constants/Url";
+import { RegisterDTO } from "../../Types/RegisterDTO";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -15,11 +16,11 @@ const Register = () => {
   };
 
   const onSubmitLogin = async () => {
-    const body = {email: email}
+    const body:RegisterDTO = {email}
      await axios
       .post(`${BASE_URL}/register`, body)
       .then((res) => {
-        localStorage.setItem("token", res.data.user.token);
+        localStorage.setItem("token", res.data.user.token as string);
         navigate("/list");
       })
       .catch((err) => {
