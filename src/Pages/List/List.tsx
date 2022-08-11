@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import ListPhotos from "../../Components/ListPhotos/ListPhotos";
 import { getList } from "../../Services/request";
-import { Button, Header, MainContainer } from "./styled";
+import { Button, Header, MainContainer, ContainerList } from "./styled";
 
 const List = () => {
   const [dataList, setDataList] = React.useState([]);
@@ -23,10 +23,12 @@ const List = () => {
           <Button onClick={() => setBreend("labrador")}>Labrador</Button>
         </div>
       </Header>
-      {dataList.length > 0 &&
-        dataList.map((dog, index) => {
-          return <ListPhotos dog={dog} />;
-        })}
+      <ContainerList>
+        {dataList.length > 0 &&
+          dataList.map((dog, index) => {
+            return <ListPhotos dog={dog} key={index} />;
+          })}
+      </ContainerList>
     </MainContainer>
   );
 };
