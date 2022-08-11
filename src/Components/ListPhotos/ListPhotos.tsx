@@ -1,6 +1,5 @@
 import React from "react";
-import { ListPhoto, MainContainer, ModalStyled } from "./styled";
-
+import * as Style from "./styled";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 
@@ -20,14 +19,14 @@ const ListPhotos = (dog: any) => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   return (
-    <MainContainer>
-      <ListPhoto src={`${dog.dog}`} alt="dog" onClick={handleOpen} />
+    <Style.MainContainer>
+      <Style.ListPhoto src={`${dog.dog}`} alt="dog" onClick={handleOpen} />
       <Modal open={open} onClose={handleClose}>
         <Box sx={style}>
-          <ModalStyled src={`${dog.dog}`} alt="dog" />
+          <Style.ModalStyled src={`${dog.dog}`} alt="dog" />
         </Box>
       </Modal>
-    </MainContainer>
+    </Style.MainContainer>
   );
 };
 
