@@ -36,5 +36,22 @@ export const ContainerList = styled.div`
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
-  width: 90%;
+  width: 100%;
+  background-color: #efefef;
+`;
+
+export const ListPagination = styled.div`
+  background-color: #efefef;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  .pagination--active {
+    background-color: #d8d8d8;
+    font-size: 1rem;
+    border: none;
+  }
+  .pagination--active:focus {
+    outline: none;
+  }
 `;
