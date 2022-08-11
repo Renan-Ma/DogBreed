@@ -17,7 +17,7 @@ export const Header = styled.div`
 
 export const Button = styled.button`
   margin: 1rem 0.5rem;
-  padding: 0.50rem 1rem;
+  padding: 0.5rem 1rem;
   border: none;
   border-radius: 8px;
   font-size: 1rem;
@@ -29,4 +29,12 @@ export const Button = styled.button`
     cursor: pointer;
     box-shadow: 0px 0px 10px #61413e;
   }
+`;
+
+export const ContainerList = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
 `;
