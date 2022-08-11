@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
 import ListPhotos from "../../Components/ListPhotos/ListPhotos";
-import { getList } from "../../Services/request";
-import { Button, Header, MainContainer, ContainerList } from "./styled";
+import { useProtectedPage } from "../../Hooks/useProtectedPage";
+import { getList } from "../../Hooks/useRequest";
+import * as Style from "./styled";
 
 const List = () => {
+  useProtectedPage();
   const [dataList, setDataList] = React.useState([]);
   const [breend, setBreend] = React.useState("chihuahua");
 
@@ -12,24 +14,24 @@ const List = () => {
   }, [breend]);
 
   return (
-    <MainContainer>
-      <Header>
+    <Style.MainContainer>
+      <Style.Header>
         <h1>Dog Breend</h1>
         <p>Escolha a raça que deseja visualizar</p>
         <div>
-          <Button onClick={() => setBreend("chihuahua")}>Chihuahua</Button>
-          <Button onClick={() => setBreend("husky")}>Husky</Button>
-          <Button onClick={() => setBreend("pug")}>Pug</Button>
-          <Button onClick={() => setBreend("labrador")}>Labrador</Button>
+          <Style.Button onClick={() => setBreend("chihuahua")}>Chihuahua</Style.Button>
+          <Style.Button onClick={() => setBreend("husky")}>Husky</Style.Button>
+          <Style.Button onClick={() => setBreend("pug")}>Pug</Style.Button>
+          <Style.Button onClick={() => setBreend("labrador")}>Labrador</Style.Button>
         </div>
-      </Header>
-      <ContainerList>
+      </Style.Header>
+      <Style.ContainerList>
         {dataList.length > 0 &&
           dataList.map((dog, index) => {
             return <ListPhotos dog={dog} key={index} />;
           })}
-      </ContainerList>
-    </MainContainer>
+      </Style.ContainerList>
+    </Style.MainContainer>
   );
 };
 
