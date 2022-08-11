@@ -34,7 +34,7 @@ const Register = () => {
       <div>
         <Box
           sx={{
-            width: 500,
+            width: 390,
           }}
         >
           <TextField

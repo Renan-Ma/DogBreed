@@ -56,7 +56,7 @@ const List = () => {
           onClick={() => onPageChange(currentPage)}
           disabled={currentPage === 0}
         >
-          Anterior
+          ᐸ
         </Style.Button>
 
         {Array.from({ length: Math.min(Max_item, pages) })
@@ -78,7 +78,7 @@ const List = () => {
           onClick={() => onPageChange(currentPage + 2)}
           disabled={currentPage === pages - 1}
         >
-          Próxima
+          ᐳ 
         </Style.Button>
       </Style.ListPagination>
     </Style.MainContainer>

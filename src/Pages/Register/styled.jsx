@@ -10,6 +10,10 @@ export const MainContainer = styled.div`
   p{
     font-size: 1.5rem;
   }
+
+  @media screen and (max-width: 480px) {
+    padding: 1rem;
+  }
 `;
 
 export const Button = styled.button`
