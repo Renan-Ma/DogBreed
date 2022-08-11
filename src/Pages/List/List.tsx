@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
+import ListPhotos from "../../Components/ListPhotos/ListPhotos";
 import { getList } from "../../Services/request";
 import { Button, Header, MainContainer } from "./styled";
 
 const List = () => {
-  const [dataList, setDataList] = React.useState({});
-  const [breend, setBreend] = React.useState("");
+  const [dataList, setDataList] = React.useState([]);
+  const [breend, setBreend] = React.useState("chihuahua");
 
   useEffect(() => {
     getList(setDataList, breend);
   }, [breend]);
 
-  // console.log(dataList);
   return (
     <MainContainer>
       <Header>
@@ -23,7 +23,10 @@ const List = () => {
           <Button onClick={() => setBreend("labrador")}>Labrador</Button>
         </div>
       </Header>
-      <div>fotos dos dogs</div>
+      {dataList.length > 0 &&
+        dataList.map((dog, index) => {
+          return <ListPhotos dog={dog} />;
+        })}
     </MainContainer>
   );
 };

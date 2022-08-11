@@ -1,18 +1,18 @@
-import axios from "axios"
-import { BASE_URL } from "../Constants/Url"
+import axios from "axios";
+import { BASE_URL } from "../Constants/Url";
 
-export const getList = async (dataList:any, breend:string) => {
+export const getList = (dataList: any, breend: string) => {
   try {
-    const token:any = {headers:{Authorization: localStorage.getItem("token")}}
-    await axios.get(`${BASE_URL}/list?breed=${breend}`, token)
+    const token: any = {
+      headers: { Authorization: localStorage.getItem("token") },
+    };
+    axios
+      .get(`${BASE_URL}/list?breed=${breend}`, token)
       .then((res) => {
-        dataList(res.data)
+        dataList(res.data.list);
       })
       .catch((err) => {
-        console.log(err.response)
-      })
-    
-  } catch (error) {
-    
-  }
-}
+        console.log(err);
+      });
+  } catch (error) {}
+};
