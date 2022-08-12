@@ -27,4 +27,9 @@ export const ModalStyled = styled.img`
     transform: scale(1.02);
     box-shadow: 0px 0px 5px grey;
   }
+
+  @media screen and (max-width: 480px) {
+    width: 22rem;
+    height: 25rem;
+  }
 `;
